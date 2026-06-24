@@ -1,0 +1,110 @@
+[
+    {
+        "id": "1",
+        "type": "permit",
+        "title": "New building permit issued near Long Pond Rd",
+        "address": "1234 Long Pond Rd, Greece, NY 14612",
+        "lat": 43.2095,
+        "lng": -77.6835,
+        "date": "2024-06-20"
+    },
+    {
+        "id": "2",
+        "type": "sale",
+        "title": "Property sold on Dewey Ave",
+        "address": "567 Dewey Ave, Greece, NY 14616",
+        "lat": 43.2150,
+        "lng": -77.6750,
+        "date": "2024-06-19"
+    },
+    {
+        "id": "3",
+        "type": "infrastructure",
+        "title": "Roadwork scheduled near Latta Rd",
+        "address": "890 Latta Rd, Greece, NY 14612",
+        "lat": 43.2050,
+        "lng": -77.6900,
+        "date": "2024-06-18"
+    },
+    {
+        "id": "4",
+        "type": "permit",
+        "title": "Residential addition permit approved",
+        "address": "2345 Mt Read Blvd, Greece, NY 14615",
+        "lat": 43.2200,
+        "lng": -77.6700,
+        "date": "2024-06-17"
+    },
+    {
+        "id": "5",
+        "type": "sale",
+        "title": "Commercial property transaction completed",
+        "address": "456 Ridge Rd W, Greece, NY 14615",
+        "lat": 43.2180,
+        "lng": -77.6650,
+        "date": "2024-06-16"
+    },
+    {
+        "id": "6",
+        "type": "infrastructure",
+        "title": "Water main repair in progress",
+        "address": "789 Buffalo Rd, Greece, NY 14624",
+        "lat": 43.1950,
+        "lng": -77.6800,
+        "date": "2024-06-15"
+    },
+    {
+        "id": "7",
+        "type": "permit",
+        "title": "Deck construction permit issued",
+        "address": "321 English Rd, Greece, NY 14616",
+        "lat": 43.2120,
+        "lng": -77.6720,
+        "date": "2024-06-14"
+    },
+    {
+        "id": "8",
+        "type": "sale",
+        "title": "Single-family home sold",
+        "address": "654 Lake Ave N, Greece, NY 14612",
+        "lat": 43.2080,
+        "lng": -77.6950,
+        "date": "2024-06-13"
+    },
+    {
+        "id": "9",
+        "type": "infrastructure",
+        "title": "Traffic signal maintenance scheduled",
+        "address": "987 West Ridge Rd, Greece, NY 14615",
+        "lat": 43.2220,
+        "lng": -77.6600,
+        "date": "2024-06-12"
+    },
+    {
+        "id": "10",
+        "type": "permit",
+        "title": "Fencing permit approved",
+        "address": "147 Fetzner Rd, Greece, NY 14616",
+        "lat": 43.2160,
+        "lng": -77.6780,
+        "date": "2024-06-11"
+    },
+    {
+        "id": "11",
+        "type": "sale",
+        "title": "Vacant land parcel sold",
+        "address": "258 Stone Rd, Greece, NY 14610",
+        "lat": 43.2000,
+        "lng": -77.7000,
+        "date": "2024-06-10"
+    },
+    {
+        "id": "12",
+        "type": "infrastructure",
+        "title": "Street paving project beginning",
+        "address": "369 Elmgrove Rd, Greece, NY 14606",
+        "lat": 43.1850,
+        "lng": -77.6650,
+        "date": "2024-06-09"
+    }
+]

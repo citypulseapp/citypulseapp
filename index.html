@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Greece, NY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>🏙️ CityPulse</h1>
+                <p class="subtitle">Greece, NY Activity Feed</p>
+            </div>
+            
+            <div class="filters">
+                <span class="filter-label">Filter by:</span>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-permit" checked>
+                    <span class="filter-indicator permit"></span>
+                    Permits
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-sale" checked>
+                    <span class="filter-indicator sale"></span>
+                    Sales
+                </label>
+                <label class="filter-checkbox">
+                    <input type="checkbox" id="filter-infrastructure" checked>
+                    <span class="filter-indicator infrastructure"></span>
+                    Infrastructure
+                </label>
+            </div>
+
+            <div class="activity-feed" id="activity-feed">
+                <div class="loading">Loading events...</div>
+            </div>
+        </aside>
+
+        <main class="map-container">
+            <div id="map"></div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
