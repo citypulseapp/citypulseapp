@@ -1,110 +1,596 @@
 [
-    {
-        "id": "1",
-        "type": "permit",
-        "title": "New building permit issued near Long Pond Rd",
-        "address": "1234 Long Pond Rd, Greece, NY 14612",
-        "lat": 43.2095,
-        "lng": -77.6835,
-        "date": "2024-06-20"
-    },
-    {
-        "id": "2",
-        "type": "sale",
-        "title": "Property sold on Dewey Ave",
-        "address": "567 Dewey Ave, Greece, NY 14616",
-        "lat": 43.2150,
-        "lng": -77.6750,
-        "date": "2024-06-19"
-    },
-    {
-        "id": "3",
-        "type": "infrastructure",
-        "title": "Roadwork scheduled near Latta Rd",
-        "address": "890 Latta Rd, Greece, NY 14612",
-        "lat": 43.2050,
-        "lng": -77.6900,
-        "date": "2024-06-18"
-    },
-    {
-        "id": "4",
-        "type": "permit",
-        "title": "Residential addition permit approved",
-        "address": "2345 Mt Read Blvd, Greece, NY 14615",
-        "lat": 43.2200,
-        "lng": -77.6700,
-        "date": "2024-06-17"
-    },
-    {
-        "id": "5",
-        "type": "sale",
-        "title": "Commercial property transaction completed",
-        "address": "456 Ridge Rd W, Greece, NY 14615",
-        "lat": 43.2180,
-        "lng": -77.6650,
-        "date": "2024-06-16"
-    },
-    {
-        "id": "6",
-        "type": "infrastructure",
-        "title": "Water main repair in progress",
-        "address": "789 Buffalo Rd, Greece, NY 14624",
-        "lat": 43.1950,
-        "lng": -77.6800,
-        "date": "2024-06-15"
-    },
-    {
-        "id": "7",
-        "type": "permit",
-        "title": "Deck construction permit issued",
-        "address": "321 English Rd, Greece, NY 14616",
-        "lat": 43.2120,
-        "lng": -77.6720,
-        "date": "2024-06-14"
-    },
-    {
-        "id": "8",
-        "type": "sale",
-        "title": "Single-family home sold",
-        "address": "654 Lake Ave N, Greece, NY 14612",
-        "lat": 43.2080,
-        "lng": -77.6950,
-        "date": "2024-06-13"
-    },
-    {
-        "id": "9",
-        "type": "infrastructure",
-        "title": "Traffic signal maintenance scheduled",
-        "address": "987 West Ridge Rd, Greece, NY 14615",
-        "lat": 43.2220,
-        "lng": -77.6600,
-        "date": "2024-06-12"
-    },
-    {
-        "id": "10",
-        "type": "permit",
-        "title": "Fencing permit approved",
-        "address": "147 Fetzner Rd, Greece, NY 14616",
-        "lat": 43.2160,
-        "lng": -77.6780,
-        "date": "2024-06-11"
-    },
-    {
-        "id": "11",
-        "type": "sale",
-        "title": "Vacant land parcel sold",
-        "address": "258 Stone Rd, Greece, NY 14610",
-        "lat": 43.2000,
-        "lng": -77.7000,
-        "date": "2024-06-10"
-    },
-    {
-        "id": "12",
-        "type": "infrastructure",
-        "title": "Street paving project beginning",
-        "address": "369 Elmgrove Rd, Greece, NY 14606",
-        "lat": 43.1850,
-        "lng": -77.6650,
-        "date": "2024-06-09"
-    }
+  {
+    "id": "60",
+    "type": "permit",
+    "title": "Site Plan Review - Convenience Store",
+    "address": "3561 Latta Rd, Greece, NY 14612",
+    "lat": 43.205,
+    "lng": -77.69,
+    "date": "2025-10-08"
+  },
+  {
+    "id": "61",
+    "type": "permit",
+    "title": "Site Plan Review - Delta Sonic",
+    "address": "3177 Latta Rd, Greece, NY 14612",
+    "lat": 43.208,
+    "lng": -77.695,
+    "date": "2025-09-17"
+  },
+  {
+    "id": "63",
+    "type": "sale",
+    "title": "Property sold",
+    "address": "1234 Long Pond Rd, Greece, NY 14612",
+    "lat": 43.2095,
+    "lng": -77.6835,
+    "date": "2025-09-15"
+  },
+  {
+    "id": "62",
+    "type": "infrastructure",
+    "title": "Roadwork Project - Latta Rd",
+    "address": "Latta Rd, Greece, NY 14612",
+    "lat": 43.205,
+    "lng": -77.69,
+    "date": "2025-09-01"
+  },
+  {
+    "id": "64",
+    "type": "sale",
+    "title": "Property sold",
+    "address": "567 Dewey Ave, Greece, NY 14616",
+    "lat": 43.215,
+    "lng": -77.675,
+    "date": "2025-08-20"
+  },
+  {
+    "id": "65",
+    "type": "sale",
+    "title": "Property sold",
+    "address": "890 Latta Rd, Greece, NY 14612",
+    "lat": 43.205,
+    "lng": -77.69,
+    "date": "2025-07-10"
+  },
+  {
+    "id": "0",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "67 Eileen Dr",
+    "lat": 43.24153464506305,
+    "lng": -77.66496218539467,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "1",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "1395 Island Cottage Rd",
+    "lat": 43.278181106750274,
+    "lng": -77.65397338832396,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "2",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "845 Britton Rd",
+    "lat": 43.236379016389556,
+    "lng": -77.64768332268761,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "3",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "110 Kinmont Dr",
+    "lat": 43.256108721796764,
+    "lng": -77.68032327128202,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "4",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "1431 Ridgeway Ave",
+    "lat": 43.1933714870809,
+    "lng": -77.66924925130165,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "5",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "3081 W Ridge Rd",
+    "lat": 43.21035277603991,
+    "lng": -77.7109448909227,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "6",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "70 Vista Dr",
+    "lat": 43.20042835991006,
+    "lng": -77.6703571063882,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "7",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "477 Meadowbriar Rd",
+    "lat": 43.24596621553454,
+    "lng": -77.65770801526824,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "8",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "172 Mill Hollow Xing",
+    "lat": 43.23447487704304,
+    "lng": -77.72560566971694,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "9",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "91 Willis Ave",
+    "lat": 43.22002632350978,
+    "lng": -77.63671136072347,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "10",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "347 Sandalwood Dr",
+    "lat": 43.252275349876435,
+    "lng": -77.64352003139945,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "11",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "80 Everwild Ln",
+    "lat": 43.23986489260522,
+    "lng": -77.67152449407565,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "12",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "132 Wedgewood Pk",
+    "lat": 43.22536001187941,
+    "lng": -77.63471710396487,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "13",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "82 Paddy Hill Dr",
+    "lat": 43.25111354211097,
+    "lng": -77.65488411457673,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "14",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "173 Flower Dale Dr",
+    "lat": 43.21325827433414,
+    "lng": -77.70947762534621,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "15",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "289 West Craig Hill Dr",
+    "lat": 43.20640780664433,
+    "lng": -77.72136127153243,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "16",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "33 Dundee Dr",
+    "lat": 43.2026346264739,
+    "lng": -77.68781349574968,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "17",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "3541 W Ridge Rd",
+    "lat": 43.212298359974476,
+    "lng": -77.72260081993286,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "18",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "196 Standish Rd",
+    "lat": 43.212293525913765,
+    "lng": -77.68489133879554,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "19",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "8 Kensington Ct",
+    "lat": 43.25116489797595,
+    "lng": -77.67053208161735,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "20",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "152 Leonard Rd",
+    "lat": 43.237693354237834,
+    "lng": -77.65121837184054,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "21",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "58 Chimney Sweep Ln",
+    "lat": 43.27718871653284,
+    "lng": -77.7103967280157,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "22",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "106 Alden Rd",
+    "lat": 43.212033024473634,
+    "lng": -77.68839566018526,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "23",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "130 Mill Hollow Xing",
+    "lat": 43.2355746322727,
+    "lng": -77.7253721324013,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "24",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "164 Lyncourt Pk",
+    "lat": 43.25883460671133,
+    "lng": -77.65475551701059,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "25",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "122 Troutbeck Ln",
+    "lat": 43.22866367345873,
+    "lng": -77.69244449789203,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "26",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "391 Bram Hall Dr",
+    "lat": 43.224088488281296,
+    "lng": -77.7247162922791,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "27",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "249 Alfonso Dr",
+    "lat": 43.217328917513186,
+    "lng": -77.68490579922558,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "28",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "274 Crossgates Rd",
+    "lat": 43.18200720313178,
+    "lng": -77.74100310608773,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "29",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "39 Spinley Ct",
+    "lat": 43.21281740024203,
+    "lng": -77.6974681131586,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "30",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "21 Chad Cir",
+    "lat": 43.21149791164938,
+    "lng": -77.64982982649076,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "31",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "695 Stone Rd",
+    "lat": 43.221020050432266,
+    "lng": -77.64484985926512,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "32",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "66 Fairview Ct",
+    "lat": 43.25857056854182,
+    "lng": -77.61607514809604,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "33",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "133 Seafarers Ln",
+    "lat": 43.24747212766102,
+    "lng": -77.71324807837881,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "34",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "387 Round Pond Ln",
+    "lat": 43.22769089644109,
+    "lng": -77.6944064280979,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "35",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "589 Denise Rd",
+    "lat": 43.24159806826947,
+    "lng": -77.63281713632925,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "36",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "70 Kentwood Dr",
+    "lat": 43.196473274104534,
+    "lng": -77.69783013024539,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "37",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "145 Pinebrook Dr",
+    "lat": 43.242067182887396,
+    "lng": -77.70787595178032,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "38",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "175 Pollet Pl",
+    "lat": 43.22220485261755,
+    "lng": -77.71268321328664,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "39",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "94 Mascot Dr",
+    "lat": 43.22581188710957,
+    "lng": -77.67902707841044,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "40",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "18 Thomasville Dr (Pvt)",
+    "lat": 43.260692968859985,
+    "lng": -77.62974373996359,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "41",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "160 Dohrcrest Dr",
+    "lat": 43.25542036575778,
+    "lng": -77.63175054185955,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "42",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "29 Atlee Dr",
+    "lat": 43.20453410185925,
+    "lng": -77.71718252678973,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "43",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "93 Whelehan Dr",
+    "lat": 43.249492838150665,
+    "lng": -77.65691769194285,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "44",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "296 Sharon Dr",
+    "lat": 43.218673688307774,
+    "lng": -77.68643541555295,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "45",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "417 Montvale Ln",
+    "lat": 43.226127432406145,
+    "lng": -77.72014062594144,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "46",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "49 Groveview Cir",
+    "lat": 43.24957310550204,
+    "lng": -77.72047887722336,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "47",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "192 Haddon Rd",
+    "lat": 43.214956612502434,
+    "lng": -77.68317707668268,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "48",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "275 Strathmore Rd",
+    "lat": 43.27208134204123,
+    "lng": -77.634419023427,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "49",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "346 Kartes Dr",
+    "lat": 43.24438909902547,
+    "lng": -77.66545775304733,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "50",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "7 Jay Vee Ln",
+    "lat": 43.270272972248854,
+    "lng": -77.69641639233193,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "51",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "348 Paddy Hill Dr",
+    "lat": 43.24601252913432,
+    "lng": -77.65343502607827,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "52",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "379 English Rd",
+    "lat": 43.23802745811853,
+    "lng": -77.65768227407182,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "53",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "2 Lantana Ln",
+    "lat": 43.26122364087215,
+    "lng": -77.67786796167036,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "54",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "124 Long Pond Rd",
+    "lat": 43.28566684010334,
+    "lng": -77.68431776112607,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "55",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "574 El Mar Dr",
+    "lat": 43.25206566710068,
+    "lng": -77.66555588568336,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "56",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "127 Perinton St",
+    "lat": 43.19658137862527,
+    "lng": -77.65685792342751,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "57",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "471 Britton Rd",
+    "lat": 43.236107717957125,
+    "lng": -77.6372797193645,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "58",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "511 Kartes Dr",
+    "lat": 43.24404830543766,
+    "lng": -77.66109337846838,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "59",
+    "type": "permit",
+    "title": "Property improvements detected",
+    "address": "25 Eileen Cir",
+    "lat": 43.23913686034247,
+    "lng": -77.66700319269918,
+    "date": "2024-01-01"
+  }
 ]
