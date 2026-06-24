@@ -6,76 +6,105 @@
     <title>CityPulse - Greece, NY</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
-        <header class="main-header">
-            <div class="header-content">
-                <h1>🏙️ CityPulse</h1>
-                <p class="subtitle">Greece, NY - Everything changing around town</p>
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>CityPulse</h1>
+                <p class="subtitle">Greece, NY</p>
             </div>
-        </header>
 
-        <div class="content-wrapper">
-            <main class="feed-container">
-                <section class="hero-section">
-                    <h2>🔥 Top Changes This Week</h2>
-                    <div class="top-changes" id="top-changes">
-                        <div class="loading">Loading changes...</div>
-                    </div>
-                </section>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-fire"></i>
+                    <span>Trending</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Map</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Stats</span>
+                </a>
+            </nav>
 
-                <section class="summary-section">
-                    <h2>📊 This Week in Greece</h2>
-                    <div class="summary-cards" id="summary-cards">
-                        <div class="loading">Loading summary...</div>
-                    </div>
-                </section>
-
-                <section class="activity-section">
-                    <h2>📍 Recent Activity</h2>
-                    <div class="filters">
-                        <label class="filter-checkbox">
-                            <input type="checkbox" id="filter-permit" checked>
-                            <span class="filter-indicator permit"></span>
-                            Permits
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" id="filter-infrastructure" checked>
-                            <span class="filter-indicator infrastructure"></span>
-                            Infrastructure
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" id="filter-commercial" checked>
-                            <span class="filter-indicator commercial"></span>
-                            Commercial
-                        </label>
-                    </div>
-                    <div class="activity-feed" id="activity-feed">
-                        <div class="loading">Loading events...</div>
-                    </div>
-                </section>
-
-                <section class="neighborhood-section">
-                    <h2>🏘️ Neighborhood Activity</h2>
-                    <div class="neighborhood-activity" id="neighborhood-activity">
-                        <div class="loading">Loading neighborhood data...</div>
-                    </div>
-                </section>
-            </main>
-
-            <aside class="map-sidebar">
-                <div class="map-header">
-                    <h3>📍 Map</h3>
-                    <p class="map-legend">
-                        <span class="legend-item"><span class="legend-dot permit"></span> Development</span>
-                        <span class="legend-item"><span class="legend-dot infrastructure"></span> Infrastructure</span>
-                        <span class="legend-dot commercial">Commercial</span>
-                    </p>
+            <div class="sidebar-stats">
+                <div class="stat-item">
+                    <span class="stat-number">65</span>
+                    <span class="stat-label">Changes</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Sources</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="main-content">
+            <div class="feed-header">
+                <h2>Home</h2>
+                <div class="feed-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Permits</button>
+                    <button class="filter-btn">Infrastructure</button>
+                    <button class="filter-btn">Commercial</button>
+                </div>
+            </div>
+
+            <div class="activity-feed" id="activity-feed">
+                <div class="loading">Loading...</div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="stats-card">
+                <h3>This Week</h3>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <span class="stat-icon">🏗️</span>
+                        <span class="stat-count">60</span>
+                        <span class="stat-label">Development</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-icon">🚧</span>
+                        <span class="stat-count">1</span>
+                        <span class="stat-label">Infrastructure</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-icon">🏢</span>
+                        <span class="stat-count">3</span>
+                        <span class="stat-label">Commercial</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-icon">📊</span>
+                        <span class="stat-count">1</span>
+                        <span class="stat-label">Census</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-card">
+                <h3>📍 Map View</h3>
                 <div id="map"></div>
-            </aside>
-        </div>
+            </div>
+
+            <div class="neighborhood-card">
+                <h3>🏘️ Neighborhoods</h3>
+                <div class="neighborhood-list" id="neighborhood-list">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+        </aside>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
