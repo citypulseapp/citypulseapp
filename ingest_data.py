@@ -184,7 +184,7 @@ class CityPulseIngestor:
                     import random
                     random_month = random.randint(1, 12)
                     random_day = random.randint(1, 28)
-                    inferred_date = f"2024-{random_month:02d}-{random_day:02d}"
+                    inferred_date = f"2025-{random_month:02d}-{random_day:02d}"
 
                 changes.append({
                     "type": "permit",
@@ -200,91 +200,13 @@ class CityPulseIngestor:
         print(f"Inferred {len(changes)} property changes")
         return changes
 
-    def scrape_board_meetings(self) -> List[Dict]:
-        """Scrape Town of Greece board meeting PDFs for permit decisions"""
-        events = []
-
-        # Add sample board meeting events based on real Planning Board meeting minutes
-        # These are from actual Planning Board meeting documents found in research
-        sample_board_events = [
-            {
-                "type": "permit",
-                "source": "planning_board",
-                "title": "Site Plan Review - Convenience Store",
-                "address": "3561 Latta Rd, Greece, NY 14612",
-                "lat": 43.2050,
-                "lng": -77.6900,
-                "date": "2025-10-08",
-                "town": "Greece"
-            },
-            {
-                "type": "permit",
-                "source": "planning_board",
-                "title": "Site Plan Review - Delta Sonic",
-                "address": "3177 Latta Rd, Greece, NY 14612",
-                "lat": 43.2080,
-                "lng": -77.6950,
-                "date": "2025-09-17",
-                "town": "Greece"
-            },
-            {
-                "type": "infrastructure",
-                "source": "town_board",
-                "title": "Roadwork Project - Latta Rd",
-                "address": "Latta Rd, Greece, NY 14612",
-                "lat": 43.2050,
-                "lng": -77.6900,
-                "date": "2025-09-01",
-                "town": "Greece"
-            }
-        ]
-
-        events.extend(sample_board_events)
-        print(f"Added {len(sample_board_events)} board meeting events")
-
-        return events
-
     def fetch_property_sales(self) -> List[Dict]:
         """Fetch property sales data from Monroe County Real Property Portal"""
         events = []
 
-        # Add sample property sales events based on typical Monroe County property transactions
+        # Property sales integration not yet implemented
         # In a full implementation, this would scrape the Monroe County Real Property Portal
-        sample_sales_events = [
-            {
-                "type": "sale",
-                "source": "monroe_property",
-                "title": "Property sold",
-                "address": "1234 Long Pond Rd, Greece, NY 14612",
-                "lat": 43.2095,
-                "lng": -77.6835,
-                "date": "2025-09-15",
-                "town": "Greece"
-            },
-            {
-                "type": "sale",
-                "source": "monroe_property",
-                "title": "Property sold",
-                "address": "567 Dewey Ave, Greece, NY 14616",
-                "lat": 43.2150,
-                "lng": -77.6750,
-                "date": "2025-08-20",
-                "town": "Greece"
-            },
-            {
-                "type": "sale",
-                "source": "monroe_property",
-                "title": "Property sold",
-                "address": "890 Latta Rd, Greece, NY 14612",
-                "lat": 43.2050,
-                "lng": -77.6900,
-                "date": "2025-07-10",
-                "town": "Greece"
-            }
-        ]
-
-        events.extend(sample_sales_events)
-        print(f"Added {len(sample_sales_events)} property sales events")
+        print("Property sales integration not yet implemented")
 
         return events
 
@@ -399,14 +321,11 @@ class CityPulseIngestor:
             greece_parcels = self.filter_greece_parcels(parcels)
             inferred_changes = self.infer_property_changes(greece_parcels)
 
-            print("Scraping board meetings...")
-            board_events = self.scrape_board_meetings()
-
             print("Fetching property sales...")
             sales_events = self.fetch_property_sales()
 
             # Combine all real data sources
-            all_events = inferred_changes + board_events + sales_events
+            all_events = inferred_changes + sales_events
         else:
             print("Using sample data...")
             all_events = self.generate_sample_events(count=12)
