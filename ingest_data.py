@@ -98,7 +98,8 @@ class CityPulseIngestor:
                     "sqft": attrs.get("squarefeetlivingarea", 0),
                     "acres": attrs.get("acres", 0),
                     "property_class": attrs.get("propertyclass", ""),
-                    "geometry": geometry
+                    "geometry": geometry,
+                    "object_id": attrs.get("OBJECTID", "")
                 }
 
                 # Extract coordinates if available
@@ -168,7 +169,9 @@ class CityPulseIngestor:
                     "lat": parcel.get("lat"),
                     "lng": parcel.get("lng"),
                     "date": f"{year_built}-01-01",
-                    "town": "Greece"
+                    "town": "Greece",
+                    "source_url": f"https://www.monroecounty.gov/property",
+                    "more_info": f"Year built: {year_built}, Assessed value: ${parcel.get('assessed_value', 0):,}"
                 })
 
             # Infer major improvements from high assessed value vs land value
@@ -194,7 +197,9 @@ class CityPulseIngestor:
                     "lat": parcel.get("lat"),
                     "lng": parcel.get("lng"),
                     "date": inferred_date,
-                    "town": "Greece"
+                    "town": "Greece",
+                    "source_url": f"https://www.monroecounty.gov/property",
+                    "more_info": f"Assessed: ${assessed:,}, Land: ${land:,}, Ratio: {assessed/land:.1f}x"
                 })
 
         print(f"Inferred {len(changes)} property changes")
@@ -303,7 +308,9 @@ class CityPulseIngestor:
                 "address": event.get("address", ""),
                 "lat": event.get("lat"),
                 "lng": event.get("lng"),
-                "date": event.get("date", datetime.now().strftime("%Y-%m-%d"))
+                "date": event.get("date", datetime.now().strftime("%Y-%m-%d")),
+                "source_url": event.get("source_url", ""),
+                "more_info": event.get("more_info", "")
             }
             normalized.append(normalized_event)
 
