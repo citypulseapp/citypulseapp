@@ -9,39 +9,73 @@
 </head>
 <body>
     <div class="app-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
+        <header class="main-header">
+            <div class="header-content">
                 <h1>🏙️ CityPulse</h1>
-                <p class="subtitle">Greece, NY Activity Feed</p>
+                <p class="subtitle">Greece, NY - Everything changing around town</p>
             </div>
-            
-            <div class="filters">
-                <span class="filter-label">Filter by:</span>
-                <label class="filter-checkbox">
-                    <input type="checkbox" id="filter-permit" checked>
-                    <span class="filter-indicator permit"></span>
-                    Permits
-                </label>
-                <label class="filter-checkbox">
-                    <input type="checkbox" id="filter-sale" checked>
-                    <span class="filter-indicator sale"></span>
-                    Sales
-                </label>
-                <label class="filter-checkbox">
-                    <input type="checkbox" id="filter-infrastructure" checked>
-                    <span class="filter-indicator infrastructure"></span>
-                    Infrastructure
-                </label>
-            </div>
+        </header>
 
-            <div class="activity-feed" id="activity-feed">
-                <div class="loading">Loading events...</div>
-            </div>
-        </aside>
+        <div class="content-wrapper">
+            <main class="feed-container">
+                <section class="hero-section">
+                    <h2>🔥 Top Changes This Week</h2>
+                    <div class="top-changes" id="top-changes">
+                        <div class="loading">Loading changes...</div>
+                    </div>
+                </section>
 
-        <main class="map-container">
-            <div id="map"></div>
-        </main>
+                <section class="summary-section">
+                    <h2>📊 This Week in Greece</h2>
+                    <div class="summary-cards" id="summary-cards">
+                        <div class="loading">Loading summary...</div>
+                    </div>
+                </section>
+
+                <section class="activity-section">
+                    <h2>📍 Recent Activity</h2>
+                    <div class="filters">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-permit" checked>
+                            <span class="filter-indicator permit"></span>
+                            Permits
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-infrastructure" checked>
+                            <span class="filter-indicator infrastructure"></span>
+                            Infrastructure
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" id="filter-commercial" checked>
+                            <span class="filter-indicator commercial"></span>
+                            Commercial
+                        </label>
+                    </div>
+                    <div class="activity-feed" id="activity-feed">
+                        <div class="loading">Loading events...</div>
+                    </div>
+                </section>
+
+                <section class="neighborhood-section">
+                    <h2>🏘️ Neighborhood Activity</h2>
+                    <div class="neighborhood-activity" id="neighborhood-activity">
+                        <div class="loading">Loading neighborhood data...</div>
+                    </div>
+                </section>
+            </main>
+
+            <aside class="map-sidebar">
+                <div class="map-header">
+                    <h3>📍 Map</h3>
+                    <p class="map-legend">
+                        <span class="legend-item"><span class="legend-dot permit"></span> Development</span>
+                        <span class="legend-item"><span class="legend-dot infrastructure"></span> Infrastructure</span>
+                        <span class="legend-dot commercial">Commercial</span>
+                    </p>
+                </div>
+                <div id="map"></div>
+            </aside>
+        </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

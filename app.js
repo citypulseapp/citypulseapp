@@ -4,19 +4,23 @@ let eventsData = [];
 
 const EVENT_ICONS = {
     permit: '🏗️',
-    sale: '🏠',
-    infrastructure: '🚧'
+    infrastructure: '🚧',
+    commercial: '�',
+    census: '�',
+    epa: '🌱'
 };
 
 const EVENT_COLORS = {
     permit: '#22c55e',
-    sale: '#3b82f6',
-    infrastructure: '#f97316'
+    infrastructure: '#f97316',
+    commercial: '#3b82f6',
+    census: '#9333ea',
+    epa: '#10b981'
 };
 
 function initMap() {
     map = L.map('map').setView([43.2095, -77.6835], 13);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -39,19 +43,123 @@ function createCustomIcon(color) {
     });
 }
 
+function translateToHumanReadable(event) {
+    // Translate government-speak to normal English
+    const title = event.title;
+
+    if (title.includes('Property improvements detected')) {
+        return 'Property renovation or expansion project';
+    } else if (title.includes('New construction built')) {
+        return 'New home construction completed';
+    } else if (title.includes('EPA')) {
+        return 'Environmental monitoring activity';
+    } else if (title.includes('Commercial Property')) {
+        return 'Commercial property activity';
+    } else if (title.includes('Census')) {
+        return 'Demographic data update';
+    } else {
+        return title;
+    }
+}
+
 function loadEvents() {
     fetch('data/greece_events.json')
         .then(response => response.json())
         .then(data => {
             eventsData = data;
+            renderTopChanges();
+            renderSummaryCards();
+            renderNeighborhoodActivity();
             renderFeed();
             renderMarkers();
         })
         .catch(error => {
             console.error('Error loading events:', error);
-            document.getElementById('activity-feed').innerHTML = 
+            document.getElementById('activity-feed').innerHTML =
                 '<div class="loading">Error loading events. Please refresh the page.</div>';
         });
+}
+
+function renderTopChanges() {
+    const container = document.getElementById('top-changes');
+    const topEvents = eventsData.slice(0, 5);
+
+    container.innerHTML = topEvents.map((event, index) => `
+        <div class="top-change-item" data-id="${event.id}">
+            <span class="change-icon">${EVENT_ICONS[event.type] || '📍'}</span>
+            <div class="change-content">
+                <div class="change-title">${index + 1}. ${translateToHumanReadable(event)}</div>
+                <div class="change-location">${event.address}</div>
+            </div>
+        </div>
+    `).join('');
+
+    // Add click handlers
+    container.querySelectorAll('.top-change-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const eventId = item.dataset.id;
+            const event = eventsData.find(e => e.id === eventId);
+            if (event) {
+                map.setView([event.lat, event.lng], 15);
+                const marker = markers.find(m => m.eventId === eventId);
+                if (marker) {
+                    marker.openPopup();
+                }
+            }
+        });
+    });
+}
+
+function renderSummaryCards() {
+    const container = document.getElementById('summary-cards');
+
+    const permitCount = eventsData.filter(e => e.type === 'permit').length;
+    const infrastructureCount = eventsData.filter(e => e.type === 'infrastructure').length;
+    const commercialCount = eventsData.filter(e => e.type === 'commercial').length;
+    const totalCount = eventsData.length;
+
+    container.innerHTML = `
+        <div class="summary-card">
+            <div class="number">${permitCount}</div>
+            <div class="label">Development Projects</div>
+        </div>
+        <div class="summary-card">
+            <div class="number">${infrastructureCount}</div>
+            <div class="label">Infrastructure</div>
+        </div>
+        <div class="summary-card">
+            <div class="number">${commercialCount}</div>
+            <div class="label">Commercial Activity</div>
+        </div>
+        <div class="summary-card">
+            <div class="number">${totalCount}</div>
+            <div class="label">Total Changes</div>
+        </div>
+    `;
+}
+
+function renderNeighborhoodActivity() {
+    const container = document.getElementById('neighborhood-activity');
+
+    // Group events by neighborhood (simplified by area)
+    const neighborhoods = {
+        'North Greece': eventsData.filter(e => e.lat > 43.22).length,
+        'Greece Ridge': eventsData.filter(e => e.lat >= 43.19 && e.lat <= 43.22).length,
+        'Braddock Heights': eventsData.filter(e => e.lat >= 43.17 && e.lat < 43.19).length,
+        'Charlotte': eventsData.filter(e => e.lat < 43.17).length
+    };
+
+    const maxCount = Math.max(...Object.values(neighborhoods));
+
+    container.innerHTML = Object.entries(neighborhoods).map(([name, count]) => `
+        <div class="neighborhood-item">
+            <div class="neighborhood-name">${name}</div>
+            <div class="activity-bar">
+                <div class="activity-fill" style="width: ${(count / maxCount) * 100}%"></div>
+            </div>
+            <div class="activity-count">${count}</div>
+        </div>
+    `).join('');
 }
 
 function renderFeed() {
@@ -65,11 +173,14 @@ function renderFeed() {
         card.className = `event-card`;
         card.dataset.type = event.type;
         card.dataset.id = event.id;
-        
+
+        const icon = EVENT_ICONS[event.type] || '📍';
+        const humanReadableTitle = translateToHumanReadable(event);
+
         card.innerHTML = `
             <div class="event-header">
-                <span class="event-icon">${EVENT_ICONS[event.type]}</span>
-                <span class="event-title">${event.title}</span>
+                <span class="event-icon">${icon}</span>
+                <span class="event-title">${humanReadableTitle}</span>
             </div>
             <div class="event-address">${event.address}</div>
             <div class="event-date">${formatDate(event.date)}</div>
@@ -77,9 +188,9 @@ function renderFeed() {
         `;
 
         card.addEventListener('click', () => {
+            map.setView([event.lat, event.lng], 15);
             const marker = markers.find(m => m.eventId === event.id);
             if (marker) {
-                map.setView([event.lat, event.lng], 15);
                 marker.openPopup();
             }
         });
@@ -93,16 +204,17 @@ function renderMarkers() {
     markers = [];
 
     eventsData.forEach(event => {
-        const icon = createCustomIcon(EVENT_COLORS[event.type]);
-        
+        const color = EVENT_COLORS[event.type] || '#667eea';
+        const icon = createCustomIcon(color);
+
         const marker = L.marker([event.lat, event.lng], { icon })
             .addTo(map)
             .bindPopup(`
-                <div class="popup-title">${EVENT_ICONS[event.type]} ${event.title}</div>
+                <div class="popup-title">${EVENT_ICONS[event.type] || '📍'} ${translateToHumanReadable(event)}</div>
                 <div class="popup-address">${event.address}</div>
                 <div class="popup-date">${formatDate(event.date)}</div>
             `);
-        
+
         marker.eventId = event.id;
         marker.eventType = event.type;
         markers.push(marker);
@@ -113,24 +225,26 @@ function renderMarkers() {
 
 function formatDate(dateStr) {
     const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
     });
 }
 
 function applyFilters() {
     const showPermit = document.getElementById('filter-permit').checked;
-    const showSale = document.getElementById('filter-sale').checked;
     const showInfrastructure = document.getElementById('filter-infrastructure').checked;
+    const showCommercial = document.getElementById('filter-commercial').checked;
 
     markers.forEach(marker => {
-        const shouldShow = 
+        const shouldShow =
             (marker.eventType === 'permit' && showPermit) ||
-            (marker.eventType === 'sale' && showSale) ||
-            (marker.eventType === 'infrastructure' && showInfrastructure);
-        
+            (marker.eventType === 'infrastructure' && showInfrastructure) ||
+            (marker.eventType === 'commercial' && showCommercial) ||
+            (marker.eventType === 'census' && showPermit) ||
+            (marker.eventType === 'epa' && showInfrastructure);
+
         if (shouldShow) {
             marker.addTo(map);
         } else {
@@ -141,19 +255,21 @@ function applyFilters() {
     const feedCards = document.querySelectorAll('.event-card');
     feedCards.forEach(card => {
         const type = card.dataset.type;
-        const shouldShow = 
+        const shouldShow =
             (type === 'permit' && showPermit) ||
-            (type === 'sale' && showSale) ||
-            (type === 'infrastructure' && showInfrastructure);
-        
+            (type === 'infrastructure' && showInfrastructure) ||
+            (type === 'commercial' && showCommercial) ||
+            (type === 'census' && showPermit) ||
+            (type === 'epa' && showInfrastructure);
+
         card.classList.toggle('hidden', !shouldShow);
     });
 }
 
 function initFilters() {
     document.getElementById('filter-permit').addEventListener('change', applyFilters);
-    document.getElementById('filter-sale').addEventListener('change', applyFilters);
     document.getElementById('filter-infrastructure').addEventListener('change', applyFilters);
+    document.getElementById('filter-commercial').addEventListener('change', applyFilters);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
